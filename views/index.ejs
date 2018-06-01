@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blog App</title>
+    <link rel='stylesheet' href="https://fonts.googleapis.com/css?family=Lato:100"/>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Node Blog</h1>
+      <form action="/adddata" method="GET">
+        <input type="submit" value="Add New Entry">
+      </form>
+      <div class="list">
+        <ol>
+        <% for(let i = 0; i < posts.length; i++) { %>
+            <li>
+          <ul>
+            <h3>Title:</h3>
+            <li><%= posts[i].title %></li>
+            <h3>Content:</h3>
+            <li><%= posts[i].body %></li>
+            <% if(posts[i].comments){ %>
+            <h3>Comments:</h3>
+            <li><%= posts[i].comments %></li>
+            <% } %>
+          </ul>
+        </li>
+        <br />
+            <% } %>
+            </ol>
+      </div>
+      <form action="/deletedata" method="GET">
+        <input type="submit" value="Delete any entry">
+      </form>
+    </div>
+  </body>
+</html>
